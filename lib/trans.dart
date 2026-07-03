@@ -9,6 +9,9 @@ class trans extends StatefulWidget {
 
   @override
   State<trans> createState() => _transState();
+
+
+
 }
 
 class _transState extends State<trans> {
@@ -16,6 +19,15 @@ class _transState extends State<trans> {
   void _refreshUI() {
     setState(() {}); // Sirf setState call karne se FutureBuilder dubara run hoga
   }
+
+  void initState() {
+    super.initState();
+    // Screen load hote hi background mein data fetch karne ke liye trigger lagayein
+    Future.microtask(() {
+      context.read<incomedata>().refreshData();
+    });
+  }
+
 
 
 

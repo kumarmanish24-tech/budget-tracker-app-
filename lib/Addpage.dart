@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'Dbhelper.dart';
 import 'Dbhelper2.dart';
 import 'dataprovider.dart';
+import 'dataprovider.dart';
 
 class Addpage extends StatefulWidget {
   const Addpage({Key? key}) : super(key: key);
@@ -60,6 +61,7 @@ class _AddpageState extends State<Addpage> {
   @override
   Widget build(BuildContext context) {
     final Addexdata = context.watch<Category>();
+
 
     return Scaffold(
       appBar: AppBar(
@@ -307,8 +309,11 @@ class _AddpageState extends State<Addpage> {
                     final date = _selectedDate.toIso8601String().split('T')[0];
                     final categ = _selectedFruit!['name']!;
 
-                    await DBHelper2.insertIncome(AMT, date, categ, _myNote.text);
-                    Provider.of<incomedata>(context, listen: false).refreshData();
+
+                    final insertdata = Provider.of<incomedata>(context,listen: false);
+
+                    await insertdata.addIncomeAndRefresh(AMT, date, categ, _myNote.text);
+
 
                     if (mounted) {
                       Navigator.pop(context, true);

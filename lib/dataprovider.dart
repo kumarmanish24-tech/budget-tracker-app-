@@ -37,6 +37,16 @@ class incomedata with ChangeNotifier{
 
   }
 
+  Future<void> addIncomeAndRefresh(double amount, String date, String category, String note) async {
+    // 1. Database mein insert karega
+    await DBHelper2.insertIncome(amount, date, category, note);
+
+    // 2. Apne aap live data aur total ko refresh karega
+    await refreshData();
+    notifyListeners();
+
+  }
+
 
 
 
