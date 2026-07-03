@@ -41,7 +41,7 @@ class _ProfileState extends State<Profile> {
           }, child: Text('Add Income ')),
           ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => IncomeDashboard()));
-          }, child: Text('View income')),
+          }, child: Text('View Income')),
 
 
           Text('${amtdata.totalIncome}'),
