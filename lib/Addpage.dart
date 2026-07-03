@@ -4,6 +4,7 @@ import 'package:ex27/AddExpense_provider.dart';
 import 'package:intl/intl.dart';
 import 'Dbhelper.dart';
 import 'Dbhelper2.dart';
+import 'dataprovider.dart';
 
 class Addpage extends StatefulWidget {
   const Addpage({Key? key}) : super(key: key);
@@ -307,6 +308,7 @@ class _AddpageState extends State<Addpage> {
                     final categ = _selectedFruit!['name']!;
 
                     await DBHelper2.insertIncome(AMT, date, categ, _myNote.text);
+                    Provider.of<incomedata>(context, listen: false).refreshData();
 
                     if (mounted) {
                       Navigator.pop(context, true);
