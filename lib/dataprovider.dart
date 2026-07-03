@@ -16,6 +16,9 @@ class incomedata with ChangeNotifier{
   String _Income = '00.00';
   String _expence = '00.00';
   String _totalIncome = '0.00';
+  List<Map<String,dynamic>> _allRecords = [];
+  List<Map<String, dynamic>> get allRecords => _allRecords;
+
 
   String get totalIncome => _totalIncome;
 
@@ -24,10 +27,11 @@ class incomedata with ChangeNotifier{
   String get expence  => _balance;
 
 
-  Future<void> refreshTotal() async{
+  Future<void> refreshData() async{
 
     double rawAmount = await DBHelper2.getTotalIncome();
     _totalIncome = rawAmount.toStringAsFixed(2);
+    _allRecords = await DBHelper2.getAllRecords();
 
     notifyListeners();
 
@@ -47,7 +51,22 @@ class incomedata with ChangeNotifier{
 
 
 
+
 }
+
+
+
+class DataExpenceProvider with ChangeNotifier{
+
+
+
+
+
+
+
+}
+
+
 
 
 

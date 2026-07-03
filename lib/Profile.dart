@@ -19,7 +19,7 @@ class _ProfileState extends State<Profile> {
     super.initState();
     // 1. Screen khulte hi bina button click kiye background mein data load hoga
     Future.microtask(() {
-      context.read<incomedata>().refreshTotal();
+      context.read<incomedata>().refreshData();
     });
   }
 
