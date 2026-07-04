@@ -1,9 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'Dbhelper2.dart';
+import 'Dbhelper.dart';
 
 
-class Dataprovider with ChangeNotifier{
+class Addincomedata with ChangeNotifier{
+
+
+  List<Map<String,dynamic>> _allRecords = [];
+  List<Map<String, dynamic>> get allRecords => _allRecords;
+  String _totalIncome = '0.00';
+  String get totalIncome => _totalIncome;
+
+
+  Future<void> refreshData() async{
+
+    double rawAmount = await DBHelper.getTotalIncome();
+    _totalIncome = rawAmount.toStringAsFixed(2);
+    _allRecords = await DBHelper.getAllRecords();
+
+    notifyListeners();
+
+  }
+
+  Future<void> addIncomeAndRefresh(double amount, String date, String notes) async {
+    // 1. Database mein insert karega
+    await DBHelper.insertIncome(amount, date, notes);
+
+
+    await refreshData();
+    notifyListeners();
+
+  }
 
 
 

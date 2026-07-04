@@ -10,9 +10,11 @@ import 'package:ex27/AddExpense_provider.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => Dataprovider()),
+
     ChangeNotifierProvider(create: (context) => Category()),
     ChangeNotifierProvider(create: (context) => incomedata()),
+    ChangeNotifierProvider(create: (context) => Addincomedata()),
+
 
   ],
     child: const MyApp(),
