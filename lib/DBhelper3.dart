@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -48,11 +50,11 @@ class DBHelper3 {
   }     // double amount, String date, String category, String note
 
   // 2. Insert (Save) a new Expense Record
-  static Future<int> insertIncome(double amount, String date, String category, String note,String Expence) async {
+  static Future<int> insertIncome(double Income, String date, String category, String note,double Expence) async {
     final db = await DBHelper3.database;
 
     final data = {
-      colIncome: amount,
+      colIncome: Income,
       colDate: date,
       colcategory: category, // Fixed typo from 'chategory' to 'category'
       colNote: note,

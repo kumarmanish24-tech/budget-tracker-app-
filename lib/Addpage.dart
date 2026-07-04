@@ -6,6 +6,7 @@ import 'Dbhelper.dart';
 import 'Dbhelper2.dart';
 import 'dataprovider.dart';
 import 'dataprovider.dart';
+import 'dataproviderforallExpence.dart';
 
 class Addpage extends StatefulWidget {
   const Addpage({Key? key}) : super(key: key);
@@ -313,6 +314,13 @@ class _AddpageState extends State<Addpage> {
                     final insertdata = Provider.of<incomedata>(context,listen: false);
 
                     await insertdata.addIncomeAndRefresh(AMT, date, categ, _myNote.text);
+
+
+                    // final insertalldata = Provider.of<Alldata>(context, listen:  false);
+                    // await insertalldata.addIncomeAndRefresh(AMT, date, _myNote.text, categ)
+
+
+
 
 
                     if (mounted) {
