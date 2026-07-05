@@ -15,6 +15,16 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
 
 
+  @override
+  void initState() {
+    super.initState();
+    // 🌟 This loads your database values right when the app opens
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<alld>(context, listen: false).refreshallData();
+    });
+  }
+
+
 
 
 
@@ -192,8 +202,13 @@ class _homeState extends State<home> {
                       children: [
 
                         InkWell(
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Addincomepage()));
+                          onTap: () async {
+                          await  Navigator.push(context, MaterialPageRoute(builder: (context) => Addincomepage()));
+                          if(context.mounted){
+                            Provider.of(context,listen: false).refreshallData();
+
+                          }
+
                           },
 
 

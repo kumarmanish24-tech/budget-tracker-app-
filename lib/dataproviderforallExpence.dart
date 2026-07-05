@@ -6,32 +6,29 @@ import 'dataprovider.dart';
 
 class alld with ChangeNotifier{
   String _balance = '00.00';
-  String _totalIncome = '00.00';
+  String _totalIncome = '00';
   String _totalExpence = '00.00';
   String get balance  => _balance;
   String get totalIncome => _totalIncome;
   String get totalexpence  => _totalExpence;
 
 
-  Future<void> refreshData() async{
+  Future<void> refreshallData() async{
 
     double rawAmount = await DBHelper.getTotalIncome();
     _totalIncome = rawAmount.toStringAsFixed(2);
+    double rawexpanse = await DBHelper2.getTotalIncome();
+    _totalExpence = rawexpanse.toStringAsFixed(2);
+
+    double rawBalance = rawAmount - rawexpanse;
+    _balance = rawBalance.toStringAsFixed(2);
 
 
     notifyListeners();
 
   }
 
-  Future<void> refreshallData() async{
 
-    double rawAmount = await DBHelper2.getTotalIncome();
-    _totalExpence = rawAmount.toStringAsFixed(2);
-
-
-    notifyListeners();
-
-  }
 
 
 

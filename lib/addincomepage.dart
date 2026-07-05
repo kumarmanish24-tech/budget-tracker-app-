@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'Dbhelper2.dart';
 import 'Dbhelper.dart';
+import 'dataproviderforallExpence.dart';
+import 'package:provider/provider.dart';
 
 
 class Addincomepage extends StatefulWidget {
@@ -347,6 +349,7 @@ class _AddincomepageState extends State<Addincomepage> {
                       await DBHelper.insertIncome(amt,dateStr,_mynote.text);
 
                       if(mounted){
+                        Provider.of<alld>(context, listen: false).refreshallData();
 
                         Navigator.pop(context,true);
 
