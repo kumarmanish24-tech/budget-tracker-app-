@@ -324,6 +324,7 @@ class _AddpageState extends State<Addpage> {
 
 
                     if (mounted) {
+
                       Navigator.pop(context, true);
                     }
                   },

@@ -83,6 +83,21 @@ class DBHelper2 {
     return 0.0;
   }
 
+
+  static Future<double> getTotalIncomeForToday() async {
+    final db = await DBHelper2.database;
+
+    // 🌟 Sirf aaj ki date ka data nikalega (Raat 12 baje ke baad automatic 0 ho jayega)
+    final List<Map<String, dynamic>> maps = await db.rawQuery(
+        "SELECT SUM($colIncome) as total FROM $tableName WHERE date($colDate) = date('now')"
+    );
+
+    if (maps.first['total'] != null) {
+      return maps.first['total'] as double;
+    }
+    return 0.0;
+  }
+
   // 4. Delete a Record
   static Future<int> deleteRecord(int id) async {
     final db = await DBHelper2.database;

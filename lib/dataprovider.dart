@@ -43,12 +43,14 @@ class incomedata with ChangeNotifier{
   String _balance = '00.00';
   String _Income = '00.00';
   String _expence = '00.00';
+  String _todayexpense = '00.00';
   String _totalIncome = '0.00';
   List<Map<String,dynamic>> _allRecords = [];
   List<Map<String, dynamic>> get allRecords => _allRecords;
 
 
   String get totalIncome => _totalIncome;
+  String get todayexpense => _todayexpense;
 
   String get balance  => _balance;
   String get income  => _balance;
@@ -60,10 +62,15 @@ class incomedata with ChangeNotifier{
     double rawAmount = await DBHelper2.getTotalIncome();
     _totalIncome = rawAmount.toStringAsFixed(2);
     _allRecords = await DBHelper2.getAllRecords();
+    double rawtodayExpence = await DBHelper2.getTotalIncomeForToday();
+    _todayexpense = rawtodayExpence.toStringAsFixed(2);
 
     notifyListeners();
 
   }
+
+
+
 
   Future<void> addIncomeAndRefresh(double amount, String date, String category, String note) async {
     // 1. Database mein insert karega
@@ -74,6 +81,8 @@ class incomedata with ChangeNotifier{
     notifyListeners();
 
   }
+
+
 
 
 

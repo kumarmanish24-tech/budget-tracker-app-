@@ -169,7 +169,7 @@ class _homeState extends State<home> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SizedBox(width: 15,),
-                            Text("₹ 320.00",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500,color: Colors.black),),
+                            Text('₹ ${moneyval.todayexpense} ',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500,color: Colors.black),),
 
                           ],
                         ),
