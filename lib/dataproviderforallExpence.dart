@@ -4,6 +4,39 @@ import 'Dbhelper2.dart';
 import 'DBhelper3.dart';
 import 'dataprovider.dart';
 
+class alld with ChangeNotifier{
+  String _balance = '00.00';
+  String _totalIncome = '00.00';
+  String _totalExpence = '00.00';
+  String get balance  => _balance;
+  String get totalIncome => _totalIncome;
+  String get totalexpence  => _totalExpence;
+
+
+  Future<void> refreshData() async{
+
+    double rawAmount = await DBHelper.getTotalIncome();
+    _totalIncome = rawAmount.toStringAsFixed(2);
+
+
+    notifyListeners();
+
+  }
+
+  Future<void> refreshallData() async{
+
+    double rawAmount = await DBHelper2.getTotalIncome();
+    _totalExpence = rawAmount.toStringAsFixed(2);
+
+
+    notifyListeners();
+
+  }
+
+
+
+}
+
 
 class Alldata with ChangeNotifier{
 
@@ -29,9 +62,9 @@ class Alldata with ChangeNotifier{
 
   }
 
-  Future<void> addIncomeAndRefresh(double Income, String date, String notes,String category,String note,double Expence ) async {
+  Future<void> addIncomeAndRefresh(double Income, String date, String notes,String category,double Expence ) async {
     // 1. Database mein insert karega
-    await DBHelper3.insertIncome(Income, date, category, note, Expence);
+    await DBHelper3.insertIncome(Income, date, category, notes, Expence);
 
 
     await refreshData();

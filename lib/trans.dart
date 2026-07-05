@@ -74,30 +74,14 @@ class _transState extends State<trans> {
                       const SizedBox(height: 10),
 
                       // 🔥 YAHAN DIRECT TEXT KE ANDAR WIDGET BANAYA
-                      FutureBuilder<double>(
-                        future: DBHelper.getTotalIncome(), // Alag banaya hua function call kiya
-                        builder: (context, snapshot) {
-                          // Jab tak database calculation kar raha hai
-                          if (snapshot.connectionState == ConnectionState.waiting) {
-                            return const SizedBox(
-                              height: 20,
-                              width: 20,
-                              child: CircularProgressIndicator(strokeWidth: 2, color: Color(0xFF06B6D4)),
-                            );
-                          }
-
-                          // Value milne par direct text me print
-                          final total = snapshot.data ?? 0.0;
-                          return Text(
-                            '₹ ${total.toStringAsFixed(2)}',
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          );
-                        },
-                      ),
+                       Text(
+                '₹ ${datapro1.totalIncome}',
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
                     ],
                   ),
                 ),
@@ -210,31 +194,16 @@ class _transState extends State<trans> {
                       ),
                       const SizedBox(height: 10),
 
-                      // 🔥 YAHAN DIRECT TEXT KE ANDAR WIDGET BANAYA
-                      FutureBuilder<double>(
-                        future: DBHelper2.getTotalIncome(), // Alag banaya hua function call kiya
-                        builder: (context, snapshot) {
-                          // Jab tak database calculation kar raha hai
-                          if (snapshot.connectionState == ConnectionState.waiting) {
-                            return const SizedBox(
-                              height: 20,
-                              width: 20,
-                              child: CircularProgressIndicator(strokeWidth: 2, color: Color(0xFF06B6D4)),
-                            );
-                          }
 
-                          // Value milne par direct text me print
-                          final total = snapshot.data ?? 0.0;
-                          return Text(
-                            '₹ ${total.toStringAsFixed(2)}',
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          );
-                        },
-                      ),
+
+                     Text(
+                '₹ ${datapro.totalIncome}',
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
                     ],
                   ),
                 ),

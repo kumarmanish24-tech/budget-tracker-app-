@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ex27/addincomepage.dart';
 import 'dataprovider.dart';
+import 'dataproviderforallExpence.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class _homeState extends State<home> {
 
     final transdata = context.watch<Category>();
     final moneyval = context.watch<incomedata>();
+    final money = context.watch<alld>();
 
     return Scaffold(
       backgroundColor: Color.fromRGBO(247, 242, 254,1),
@@ -78,7 +80,7 @@ class _homeState extends State<home> {
                         children: [
 
                           Text('Total Balance',style: TextStyle(color: Colors.white70,fontSize: 20,fontWeight: FontWeight.w700),),
-                          Text('₹${moneyval.balance}',style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w600),)
+                          Text('₹${money.balance}',style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w600),)
                         ],
                       )
                     ],
@@ -93,7 +95,7 @@ class _homeState extends State<home> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('This Month Income', style: TextStyle(color: Colors.white70, fontSize: 15, fontWeight: FontWeight.w700)),
-                            Text('₹ ${moneyval.income}', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500)),
+                            Text('₹ ${money.totalIncome}', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500)),
                           ],
                         ),
 
@@ -111,7 +113,7 @@ class _homeState extends State<home> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Expenses', style: TextStyle(color: Colors.white70, fontSize: 15, fontWeight: FontWeight.w700)),
-                            Text('₹ ${moneyval.expence}', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500)),
+                            Text('₹ ${money.totalexpence}', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500)),
                           ],
                         ),
                       ],

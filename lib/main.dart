@@ -1,3 +1,5 @@
+import 'package:ex27/dataproviderforallExpence.dart';
+
 import 'dataprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:ex27/home.dart';
@@ -14,6 +16,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => Category()),
     ChangeNotifierProvider(create: (context) => incomedata()),
     ChangeNotifierProvider(create: (context) => Addincomedata()),
+    ChangeNotifierProvider(create: (context) => alld()),
 
 
   ],
