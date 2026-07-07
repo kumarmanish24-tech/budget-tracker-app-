@@ -5,6 +5,7 @@ import 'demothiredpage.dart';
 import 'demoincomepage.dart';
 import 'Dbhelper2.dart';
 import 'Dbhelper.dart';
+import 'package:lottie/lottie.dart';
 
 // RE-NAMED: Class ka naam badal kar Profile rakh diya hai
 class Profile extends StatefulWidget {
@@ -35,6 +36,9 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(title: Text("Profile Transactions")), // Aap chahein to title badal sakte hain
       body: Column(
         children: [
+
+
+          
 
           ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => ThirdPage()));

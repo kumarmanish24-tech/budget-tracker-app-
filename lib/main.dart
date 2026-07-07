@@ -1,4 +1,5 @@
 import 'package:ex27/dataproviderforallExpence.dart';
+import 'package:ex27/spalshscreen.dart';
 
 import 'dataprovider.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import 'package:ex27/Profile.dart';
 import 'package:ex27/AddExpense_provider.dart';
 
 void main() {
+
   runApp(MultiProvider(providers: [
 
     ChangeNotifierProvider(create: (context) => Category()),
@@ -32,7 +34,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
 
       debugShowCheckedModeBanner: false,
-      home: MainNavigationScreen(),
+      // home: MainNavigationScreen(),
+      home: spalsh(),
     );
   }
 }
