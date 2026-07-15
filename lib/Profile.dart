@@ -6,7 +6,10 @@ import 'demoincomepage.dart';
 import 'Dbhelper2.dart';
 import 'Dbhelper.dart';
 import 'package:lottie/lottie.dart';
-
+import 'LottieCheckButton.dart';
+import 'payment.dart';
+import 'user_info/inputprofile.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // RE-NAMED: Class ka naam badal kar Profile rakh diya hai
 class Profile extends StatefulWidget {
   @override
@@ -15,9 +18,22 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
 
+  String name = "";
+
+  Future<void> getdata()async{
+
+
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+       name = prefs.getString("name") ?? "NO Name";
+    });
+
+  }
+
   @override
   void initState() {
     super.initState();
+    getdata();
     // 1. Screen khulte hi bina button click kiye background mein data load hoga
     Future.microtask(() {
       context.read<incomedata>().refreshData();
@@ -37,8 +53,18 @@ class _ProfileState extends State<Profile> {
       body: Column(
         children: [
 
+          ElevatedButton(onPressed: (){
 
-          
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>userproinput()));
+            getdata();
+
+          }, child: Text("userproinput")),
+
+
+          SizedBox(height: 100,
+              width: 100,
+              child: Lottie.asset('assets/lotties/Cat playing animation.json')),
+          Text(name),
 
           ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => ThirdPage()));
@@ -49,6 +75,11 @@ class _ProfileState extends State<Profile> {
 
 
           Text('${amtdata.totalIncome}'),
+
+
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentButtonScreen()));
+          }, child: Text('Animated page')),
 
 
 
