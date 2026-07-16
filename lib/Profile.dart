@@ -10,6 +10,8 @@ import 'LottieCheckButton.dart';
 import 'payment.dart';
 import 'user_info/inputprofile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'sidebar.dart';
+import 'ex.dart';
 // RE-NAMED: Class ka naam badal kar Profile rakh diya hai
 class Profile extends StatefulWidget {
   @override
@@ -60,11 +62,26 @@ class _ProfileState extends State<Profile> {
 
           }, child: Text("userproinput")),
 
+          ElevatedButton(onPressed: (){
+
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>BounceTextPage()));
+            getdata();
+
+          }, child: Text("EX")),
+
+
+
+
+
 
           SizedBox(height: 100,
               width: 100,
               child: Lottie.asset('assets/lotties/Cat playing animation.json')),
           Text(name),
+
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => sidebar()));
+          }, child: Text("Sidebar")),
 
           ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => ThirdPage()));

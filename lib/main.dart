@@ -10,6 +10,7 @@ import 'package:ex27/Budget.dart';
 import 'package:provider/provider.dart';
 import 'package:ex27/Profile.dart';
 import 'package:ex27/AddExpense_provider.dart';
+import 'appsettingprovider.dart';
 
 void main() {
 
@@ -19,6 +20,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => incomedata()),
     ChangeNotifierProvider(create: (context) => Addincomedata()),
     ChangeNotifierProvider(create: (context) => alld()),
+    ChangeNotifierProvider(create: (context) => sidebardata()),
 
 
   ],
