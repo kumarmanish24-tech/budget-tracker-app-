@@ -13,6 +13,14 @@ class sidebardata with ChangeNotifier{
   bool _isnotiOn = false;
   bool _isbackupOn = false;
 
+  IconData _thememode = Icons.dark_mode_outlined;
+  IconData _notiIco = Icons.notifications_off_outlined;
+  IconData _backypIco = Icons.backup_outlined;
+
+  IconData get thememode => _thememode;
+  IconData get notiIco => _notiIco;
+  IconData get backupIco => _backypIco;
+
   String get mode => _mode;
   String get noti => _noti;
   String get backup => _backup;
@@ -28,9 +36,11 @@ class sidebardata with ChangeNotifier{
     _isdark = value;
     if(value){
       _mode = "Dark Mode";
+      _thememode = Icons.dark_mode;
     }
     else{
       _mode ="Light Mode";
+      _thememode = Icons.dark_mode_outlined;
     }
     notifyListeners();
 
@@ -41,9 +51,11 @@ class sidebardata with ChangeNotifier{
     _isnotiOn = value;
     if(value){
       _noti = "Notification ON";
+      _notiIco = Icons.notifications_none;
     }
     else{
       _noti ="Notification OFF";
+      _notiIco = Icons.notifications_off_outlined;
     }
     notifyListeners();
 
@@ -53,9 +65,11 @@ class sidebardata with ChangeNotifier{
     _isbackupOn = value;
     if(value){
       _backup = "Backup & Restore ON";
+      _backypIco = Icons.backup;
     }
     else{
       _backup ="Backup & Restore OFF";
+      _backypIco = Icons.backup_outlined;
     }
     notifyListeners();
 
