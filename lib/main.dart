@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:ex27/Profile.dart';
 import 'package:ex27/AddExpense_provider.dart';
 import 'appsettingprovider.dart';
+import 'Realprofile.dart';
 
 void main() {
 
@@ -58,7 +59,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const trans(),
 
     const BudgetPage(),
-     Profile(),
+    realprofile(),
+
   ];
 
   @override

@@ -6,6 +6,7 @@ import 'dataprovider.dart';
 import 'dataproviderforallExpence.dart';
 import 'package:provider/provider.dart';
 import 'appsettingprovider.dart';
+import 'Profile.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -483,30 +484,35 @@ class _homeState extends State<home> {
                             ],
                           ),
                         ),
-                        Container(
-                          height: 75,
-                          width: 65,
-                          decoration: BoxDecoration(
-                            // color: Color.fromRGBO(113, 82, 251,1),
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(8.0), // Padding around icon
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(235, 228, 253,1) ,// Background color
-                                  borderRadius: BorderRadius.circular(50), // Rounded corners
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Profile ()));
+                          },
+                          child: Container(
+                            height: 75,
+                            width: 65,
+                            decoration: BoxDecoration(
+                              // color: Color.fromRGBO(113, 82, 251,1),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(8.0), // Padding around icon
+                                  decoration: BoxDecoration(
+                                    color: Color.fromRGBO(235, 228, 253,1) ,// Background color
+                                    borderRadius: BorderRadius.circular(50), // Rounded corners
+                                  ),
+                                  child: const Icon(
+                                    Icons.movie,
+                                    color: Color.fromRGBO(108, 74, 240,1),
+                                    size: 24.0,
+                                  ),
                                 ),
-                                child: const Icon(
-                                  Icons.movie,
-                                  color: Color.fromRGBO(108, 74, 240,1),
-                                  size: 24.0,
-                                ),
-                              ),
-                              Text('Entertainment',style: TextStyle(color: Colors.black87,fontSize: 10),),
-                            ],
+                                Text('Entertainment',style: TextStyle(color: Colors.black87,fontSize: 10),),
+                              ],
+                            ),
                           ),
                         ),
 
